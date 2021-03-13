@@ -15,7 +15,11 @@
  */
 package com.example.androiddevchallenge
 
+import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.Crossfade
@@ -37,6 +41,7 @@ const val DEST_HOME_SCREEN = "home_screen"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        makeStatusBarTransparent()
         setContent {
             MyTheme {
                 MyApp()
@@ -81,5 +86,15 @@ fun LightPreview() {
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
         MyApp()
+    }
+}
+
+fun Activity.makeStatusBarTransparent() {
+    window.apply {
+        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        statusBarColor = Color.TRANSPARENT
     }
 }
