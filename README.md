@@ -7,6 +7,7 @@
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
+This is a mock app developed with jetpack compose
 
 
 ## :bulb: Motivation and Context
