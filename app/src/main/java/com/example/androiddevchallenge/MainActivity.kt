@@ -18,12 +18,21 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.animation.Crossfade
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.ui.theme.screens.HomeScreen
+import com.example.androiddevchallenge.ui.theme.screens.LoginScreen
+import com.example.androiddevchallenge.ui.theme.screens.WelcomeScreen
+
+const val DEST_WELCOME_SCREEN = "welcome_screen"
+const val DEST_LOGIN_SCREEN = "login_screen"
+const val DEST_SIGNUP_SCREEN = "signup_screen"
+const val DEST_HOME_SCREEN = "home_screen"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +48,23 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = DEST_WELCOME_SCREEN) {
+        composable(DEST_WELCOME_SCREEN) {
+            Crossfade(targetState = DEST_WELCOME_SCREEN) {
+                WelcomeScreen(navController = navController)
+            }
+        }
+        composable(DEST_LOGIN_SCREEN) {
+            Crossfade(targetState = DEST_LOGIN_SCREEN) {
+                LoginScreen(navController = navController)
+            }
+        }
+        composable(DEST_HOME_SCREEN) {
+            Crossfade(targetState = DEST_HOME_SCREEN) {
+                HomeScreen()
+            }
+        }
     }
 }
 
