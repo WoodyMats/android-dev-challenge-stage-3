@@ -2,17 +2,16 @@
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/WoodyMats/android-dev-challenge-stage-3/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-This is a mock app developed with jetpack compose
+This is a mock app developed with jetpack compose.
 
 
 ## :bulb: Motivation and Context
-<!--- Optionally point readers to interesting parts of your submission. -->
-<!--- What are you especially proud of? -->
+Excited for being able to building complex UI fast and easy using jetpack compose.
 
 
 ## :camera_flash: Screenshots
